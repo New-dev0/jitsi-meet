@@ -37,12 +37,15 @@ interface IProps {
 const useStyles = makeStyles()(theme => {
     return {
         button: {
-            marginRight: theme.spacing(2)
+            marginRight: theme.spacing(2),
+            transition: 'background-color 0.2s ease',
+            borderRadius: '6px'
         },
         moreButton: {
             paddingRight: '6px',
             paddingLeft: '6px',
-            marginRight: theme.spacing(2)
+            marginRight: theme.spacing(2),
+            transition: 'background-color 0.2s ease'
         },
         contextMenu: {
             position: 'fixed',
@@ -113,7 +116,9 @@ export const LobbyParticipantItem = ({
                             testId: `lobby-chat-${id}`,
                             icon: IconMessage,
                             text: t('lobby.chat')
-                        } ] } />
+                        } ] } >
+                        <></>
+                    </ContextMenuItemGroup>
                     <ContextMenuItemGroup
                         actions = { [ {
                             accessibilityLabel: `${t('participantsPane.actions.reject')} ${p.name}`,
@@ -121,7 +126,9 @@ export const LobbyParticipantItem = ({
                             testId: `reject-${id}`,
                             icon: IconUserDeleted,
                             text: t('participantsPane.actions.reject')
-                        } ] } />
+                        } ] } >
+                        <></>
+                    </ContextMenuItemGroup>
                 </ContextMenu>
             </> : <>
                 <Button
